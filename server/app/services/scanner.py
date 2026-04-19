@@ -1,14 +1,14 @@
 import os
 from pathlib import Path
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from app.core.config import CAMERA_DIR
 from app.core.logger import logger
 from app.utils.media_types import get_media_type, IMAGE_EXTENSIONS, VIDEO_EXTENSIONS
 
-def get_media_files(skip: int = 0, limit: int = 50) -> Dict[str, Any]:
+def get_media_files(skip: int = 0, limit: int = 50, filter_type: Optional[str] = None) -> Dict[str, Any]:
     """
     Scans the camera directory for supported media files, sorts them by 
-    modification date descending, and applies pagination.
+    modification date descending, applies filtering, and applies pagination.
     """
     if not os.path.exists(CAMERA_DIR):
         logger.error(f"Camera directory not found: {CAMERA_DIR}")
@@ -24,10 +24,14 @@ def get_media_files(skip: int = 0, limit: int = 50) -> Dict[str, Any]:
                 if entry.is_file():
                     ext = "." + entry.name.split(".")[-1].lower() if "." in entry.name else ""
                     if ext in valid_extensions:
+                        media_type = get_media_type(entry.name)
+                        if filter_type and media_type != filter_type:
+                            continue
+                            
                         stat = entry.stat()
                         files_with_stats.append({
                             "filename": entry.name,
-                            "type": get_media_type(entry.name),
+                            "type": media_type,
                             "size": stat.st_size,
                             "mtime": stat.st_mtime,
                         })
@@ -37,7 +41,7 @@ def get_media_files(skip: int = 0, limit: int = 50) -> Dict[str, Any]:
 
     files_with_stats.sort(key=lambda x: x["mtime"], reverse=True)
     total = len(files_with_stats)
-    logger.info(f"Scanned {total} media files in {CAMERA_DIR}. Returning skip={skip}, limit={limit}")
+    logger.info(f"Scanned {total} media files in {CAMERA_DIR}. Returning skip={skip}, limit={limit}, filter={filter_type}")
     paginated_files = files_with_stats[skip:skip + limit]
     
     return {

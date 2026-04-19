@@ -1,6 +1,7 @@
 import os
 from fastapi import APIRouter, Depends, Query, HTTPException, Request
 from fastapi.responses import FileResponse, Response
+from typing import Optional
 
 from app.core.config import CAMERA_DIR
 from app.core.logger import logger
@@ -12,9 +13,13 @@ from app.utils.media_types import get_media_type
 router = APIRouter()
 
 @router.get("/")
-def list_media(skip: int = Query(0, ge=0), limit: int = Query(50, ge=1, le=100)):
-    """Validates files from the directory via chunks."""
-    return get_media_files(skip=skip, limit=limit)
+def list_media(
+    skip: int = Query(0, ge=0), 
+    limit: int = Query(50, ge=1, le=100),
+    filter_type: Optional[str] = Query(None, description="Filter by media type (e.g. 'image' or 'video')")
+):
+    """Validates files from the directory via chunks and optional type filtering."""
+    return get_media_files(skip=skip, limit=limit, filter_type=filter_type)
 
 @router.get("/{filename}/thumbnail")
 def media_thumbnail(filename: str):
