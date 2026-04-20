@@ -1,0 +1,11 @@
+2026-04-20 21:38:21,300 - media_app - INFO - Scanned 2411 media files in F:\backup\Xiaomi 220333QBI\Camera. Returning skip=50, limit=50, filter=None
+2026-04-20 21:38:24,169 - media_app - INFO - Scanned 2411 media files in F:\backup\Xiaomi 220333QBI\Camera. Returning skip=100, limit=50, filter=None
+2026-04-20 21:39:53,020 - uvicorn.error - INFO - Started server process [5284]
+2026-04-20 21:39:53,020 - uvicorn.error - INFO - Started server process [5284]
+2026-04-20 21:39:53,020 - uvicorn.error - INFO - Waiting for application startup.
+2026-04-20 21:39:53,020 - uvicorn.error - INFO - Waiting for application startup.
+2026-04-20 21:39:53,023 - uvicorn.error - INFO - Application startup complete.
+2026-04-20 21:39:53,023 - uvicorn.error - INFO - Application startup complete.
+2026-04-20 21:39:53,025 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-04-20 21:39:53,025 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-04-20 21:39:57,191 - uvicorn.access - INFO - 127.0.0.1:51383 - "GET /logs/?limit=100 HTTP/1.1" 200

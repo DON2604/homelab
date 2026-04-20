@@ -1,27 +1,18 @@
 from fastapi import APIRouter
-from pydantic import BaseModel
-from typing import Optional, Any
-import logging
+import os
 
 router = APIRouter()
-logger = logging.getLogger(__name__)
 
-class LogMessage(BaseModel):
-    level: str
-    message: str
-    data: Optional[Any] = None
+LOG_FILE_PATH = "data/app.log"
 
-@router.post("/")
-async def receive_log(log_msg: LogMessage):
-    if log_msg.level.lower() == 'error':
-        logger.error(f"Frontend Error: {log_msg.message} | Data: {log_msg.data}")
-    elif log_msg.level.lower() == 'warn' or log_msg.level.lower() == 'warning':
-        logger.warning(f"Frontend Warning: {log_msg.message} | Data: {log_msg.data}")
-    elif log_msg.level.lower() == 'info':
-        logger.info(f"Frontend Info: {log_msg.message} | Data: {log_msg.data}")
-    elif log_msg.level.lower() == 'debug':
-        logger.debug(f"Frontend Debug: {log_msg.message} | Data: {log_msg.data}")
-    else:
-        logger.info(f"Frontend Log ({log_msg.level}): {log_msg.message} | Data: {log_msg.data}")
-        
-    return {"status": "Logged"}
+@router.get("/")
+def get_logs(limit: int = 100):
+    if not os.path.exists(LOG_FILE_PATH):
+        return {"logs": []}
+    
+    try:
+        with open(LOG_FILE_PATH, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+            return {"logs": [line.strip() for line in lines[-limit:]]}
+    except Exception as e:
+        return {"error": str(e), "logs": []}
