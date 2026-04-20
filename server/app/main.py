@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.routes import media
+from app.api.routes import media, logs
 
 app = FastAPI(title="Media Dashboard Engine")
 
@@ -13,6 +13,7 @@ app.add_middleware(
 )
 
 app.include_router(media.router, prefix="/media", tags=["Media"])
+app.include_router(logs.router, prefix="/logs", tags=["Logs"])
 
 @app.get("/")
 def health_check():
