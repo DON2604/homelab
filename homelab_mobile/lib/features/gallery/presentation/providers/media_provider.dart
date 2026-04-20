@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:homelab_mobile/core/constants/api_constants.dart';
 import 'package:homelab_mobile/features/gallery/domain/models/media_item.dart';
@@ -155,3 +157,29 @@ class MediaNotifier extends AsyncNotifier<MediaState> {
 /// The primary provider for gallery state.
 final mediaNotifierProvider =
     AsyncNotifierProvider<MediaNotifier, MediaState>(MediaNotifier.new);
+
+/// Provider to check if the server is online.
+final serverStatusProvider = StreamProvider.autoDispose<bool>((ref) async* {
+  Future<bool> checkStatus() async {
+    try {
+      final response = await http
+          .get(Uri.parse('https://hip-trim-dirt-duration.trycloudflare.com/'))
+          .timeout(const Duration(seconds: 5));
+      if (response.statusCode == 200) {
+        final json = jsonDecode(response.body);
+        return json['status'] == 'ok';
+      }
+    } catch (_) {
+      return false;
+    }
+    return false;
+  }
+
+  // Initial check right away
+  yield await checkStatus();
+
+  // Then check every 20 seconds
+  await for (final _ in Stream.periodic(const Duration(seconds: 20))) {
+    yield await checkStatus();
+  }
+});
