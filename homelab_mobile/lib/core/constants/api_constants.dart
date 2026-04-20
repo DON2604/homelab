@@ -3,7 +3,7 @@
 class ApiConstants {
   ApiConstants._();
 
-  static const String baseUrl = 'http://192.168.0.207:8000';
+  static const String baseUrl = 'https://hip-trim-dirt-duration.trycloudflare.com';
   static const String mediaPrefix = '/media';
 
   // ── Pagination defaults ────────────────────────────────────────────────
@@ -11,9 +11,15 @@ class ApiConstants {
 
   // ── Endpoint builders ──────────────────────────────────────────────────
 
-  /// `GET /media/?skip=&limit=`
-  static String listMediaUrl({int skip = 0, int limit = defaultPageSize}) =>
-      '$baseUrl$mediaPrefix/?skip=$skip&limit=$limit';
+  /// `GET /media/?skip=&limit=&filter_type=`
+  static String listMediaUrl({
+    int skip = 0,
+    int limit = defaultPageSize,
+    String? filterType,
+  }) {
+    final base = '$baseUrl$mediaPrefix/?skip=$skip&limit=$limit';
+    return filterType != null ? '$base&filter_type=$filterType' : base;
+  }
 
   /// `GET /media/{filename}/thumbnail`
   static String thumbnailUrl(String filename) =>

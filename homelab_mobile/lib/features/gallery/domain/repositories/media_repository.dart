@@ -7,5 +7,10 @@ abstract class MediaRepository {
   ///
   /// [skip] — number of items to skip (offset)
   /// [limit] — max items to return (1–100)
-  Future<MediaPage> getMedia({int skip = 0, int limit = 50});
+  /// [filterType] — optional `'image'` or `'video'` to filter server-side
+  Future<MediaPage> getMedia({
+    int skip = 0,
+    int limit = 50,
+    String? filterType,
+  });
 }

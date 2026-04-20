@@ -15,6 +15,8 @@ class GalleryScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final asyncState = ref.watch(mediaNotifierProvider);
     final total = asyncState.valueOrNull?.total ?? 0;
+    final activeFilter =
+        asyncState.valueOrNull?.activeFilter ?? MediaFilter.all;
 
     return Scaffold(
       backgroundColor: AppTheme.background,
@@ -25,7 +27,11 @@ class GalleryScreen extends ConsumerWidget {
         onRefresh: () => ref.read(mediaNotifierProvider.notifier).refresh(),
         child: NestedScrollView(
           headerSliverBuilder: (context, innerBoxIsScrolled) => [
-            _GalleryAppBar(total: total, innerBoxIsScrolled: innerBoxIsScrolled),
+            _GalleryAppBar(
+              total: total,
+              innerBoxIsScrolled: innerBoxIsScrolled,
+              activeFilter: activeFilter,
+            ),
           ],
           body: const MediaGrid(),
         ),
@@ -36,18 +42,21 @@ class GalleryScreen extends ConsumerWidget {
 
 // ── App Bar ───────────────────────────────────────────────────────────────────
 
-class _GalleryAppBar extends StatelessWidget {
+class _GalleryAppBar extends ConsumerWidget {
   const _GalleryAppBar({
     required this.total,
     required this.innerBoxIsScrolled,
+    required this.activeFilter,
   });
 
   final int total;
   final bool innerBoxIsScrolled;
+  final MediaFilter activeFilter;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
+    final isFiltered = activeFilter != MediaFilter.all;
 
     return SliverAppBar(
       pinned: true,
@@ -78,7 +87,7 @@ class _GalleryAppBar extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Photos',
+                  activeFilter.label,
                   style: theme.textTheme.displayLarge?.copyWith(fontSize: 28),
                 ),
                 if (total > 0)
@@ -92,42 +101,57 @@ class _GalleryAppBar extends StatelessWidget {
         ),
       ),
       actions: [
+        // Show a highlighted filter icon when a filter is active
         IconButton(
-          icon: const Icon(Icons.filter_list_rounded),
+          icon: Badge(
+            isLabelVisible: isFiltered,
+            backgroundColor: AppTheme.accent,
+            smallSize: 8,
+            child: const Icon(Icons.filter_list_rounded),
+          ),
           tooltip: 'Filter',
-          onPressed: () => _showFilterSheet(context),
+          onPressed: () => _showFilterSheet(context, ref),
         ),
         const SizedBox(width: 4),
       ],
     );
   }
 
-  void _showFilterSheet(BuildContext context) {
+  void _showFilterSheet(BuildContext context, WidgetRef ref) {
     showModalBottomSheet(
       context: context,
       backgroundColor: AppTheme.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
-      builder: (_) => const _FilterSheet(),
+      builder: (_) => ProviderScope(
+        // Share the parent scope so the sheet can read/write the same provider
+        parent: ProviderScope.containerOf(context),
+        child: const _FilterSheet(),
+      ),
     );
   }
 }
 
-// ── Filter bottom sheet (placeholder) ────────────────────────────────────────
+// ── Filter bottom sheet ───────────────────────────────────────────────────────
 
-class _FilterSheet extends StatelessWidget {
+class _FilterSheet extends ConsumerWidget {
   const _FilterSheet();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
+    final asyncState = ref.watch(mediaNotifierProvider);
+    final activeFilter =
+        asyncState.valueOrNull?.activeFilter ?? MediaFilter.all;
+
     return Padding(
       padding: const EdgeInsets.all(24),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Drag handle
           Center(
             child: Container(
               width: 36,
@@ -141,15 +165,18 @@ class _FilterSheet extends StatelessWidget {
           const SizedBox(height: 20),
           Text('Show', style: theme.textTheme.titleLarge),
           const SizedBox(height: 12),
-          _FilterChip(label: 'All', selected: true, icon: Icons.apps_rounded),
-          _FilterChip(
-              label: 'Photos',
-              selected: false,
-              icon: Icons.image_outlined),
-          _FilterChip(
-              label: 'Videos',
-              selected: false,
-              icon: Icons.videocam_outlined),
+          ...MediaFilter.values.map(
+            (filter) => _FilterTile(
+              filter: filter,
+              isSelected: filter == activeFilter,
+              onTap: () {
+                ref
+                    .read(mediaNotifierProvider.notifier)
+                    .setFilter(filter);
+                Navigator.pop(context);
+              },
+            ),
+          ),
           const SizedBox(height: 16),
         ],
       ),
@@ -157,37 +184,44 @@ class _FilterSheet extends StatelessWidget {
   }
 }
 
-class _FilterChip extends StatelessWidget {
-  const _FilterChip({
-    required this.label,
-    required this.selected,
-    required this.icon,
+// ── Individual filter row ─────────────────────────────────────────────────────
+
+class _FilterTile extends StatelessWidget {
+  const _FilterTile({
+    required this.filter,
+    required this.isSelected,
+    required this.onTap,
   });
 
-  final String label;
-  final bool selected;
-  final IconData icon;
+  final MediaFilter filter;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  IconData get _icon => switch (filter) {
+        MediaFilter.all => Icons.apps_rounded,
+        MediaFilter.images => Icons.image_outlined,
+        MediaFilter.videos => Icons.videocam_outlined,
+      };
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       contentPadding: EdgeInsets.zero,
       leading: Icon(
-        icon,
-        color: selected ? AppTheme.accent : AppTheme.onSurface,
+        _icon,
+        color: isSelected ? AppTheme.accent : AppTheme.onSurface,
       ),
       title: Text(
-        label,
+        filter.label,
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: selected ? AppTheme.accent : AppTheme.onBackground,
-              fontWeight:
-                  selected ? FontWeight.w600 : FontWeight.normal,
+              color: isSelected ? AppTheme.accent : AppTheme.onBackground,
+              fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
             ),
       ),
-      trailing: selected
+      trailing: isSelected
           ? Icon(Icons.check_rounded, color: AppTheme.accent)
           : null,
-      onTap: () => Navigator.pop(context),
+      onTap: onTap,
     );
   }
 }

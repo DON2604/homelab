@@ -22,9 +22,17 @@ class MediaRemoteDataSource {
 
   final http.Client _client;
 
-  /// Calls `GET /media/?skip=&limit=` and parses the response.
-  Future<MediaPage> fetchMedia({int skip = 0, int limit = 50}) async {
-    final url = ApiConstants.listMediaUrl(skip: skip, limit: limit);
+  /// Calls `GET /media/?skip=&limit=&filter_type=` and parses the response.
+  Future<MediaPage> fetchMedia({
+    int skip = 0,
+    int limit = 50,
+    String? filterType,
+  }) async {
+    final url = ApiConstants.listMediaUrl(
+      skip: skip,
+      limit: limit,
+      filterType: filterType,
+    );
     try {
       final response = await _client
           .get(Uri.parse(url))

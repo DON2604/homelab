@@ -9,7 +9,15 @@ class MediaRepositoryImpl implements MediaRepository {
   final MediaRemoteDataSource _dataSource;
 
   @override
-  Future<MediaPage> getMedia({int skip = 0, int limit = 50}) {
-    return _dataSource.fetchMedia(skip: skip, limit: limit);
+  Future<MediaPage> getMedia({
+    int skip = 0,
+    int limit = 50,
+    String? filterType,
+  }) {
+    return _dataSource.fetchMedia(
+      skip: skip,
+      limit: limit,
+      filterType: filterType,
+    );
   }
 }
