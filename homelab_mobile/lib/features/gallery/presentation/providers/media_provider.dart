@@ -4,6 +4,28 @@ import 'package:homelab_mobile/features/gallery/domain/models/media_item.dart';
 import 'package:homelab_mobile/features/gallery/domain/repositories/media_repository.dart';
 import 'package:homelab_mobile/features/gallery/presentation/providers/provider_overrides.dart';
 
+// ── Filter enum ───────────────────────────────────────────────────────────────
+
+/// Represents the active media type filter.
+enum MediaFilter {
+  all,
+  images,
+  videos;
+
+  /// The value forwarded to the server as `filter_type`, or `null` for all.
+  String? get queryValue => switch (this) {
+        MediaFilter.all => null,
+        MediaFilter.images => 'image',
+        MediaFilter.videos => 'video',
+      };
+
+  String get label => switch (this) {
+        MediaFilter.all => 'Photos & Videos',
+        MediaFilter.images => 'Photos',
+        MediaFilter.videos => 'Videos',
+      };
+}
+
 // ── State ─────────────────────────────────────────────────────────────────────
 
 /// Immutable state held by [MediaNotifier].
@@ -13,6 +35,7 @@ class MediaState {
     this.total = 0,
     this.isLoadingMore = false,
     this.hasMore = true,
+    this.activeFilter = MediaFilter.all,
     this.error,
   });
 
@@ -20,6 +43,7 @@ class MediaState {
   final int total;
   final bool isLoadingMore;
   final bool hasMore;
+  final MediaFilter activeFilter;
   final String? error;
 
   int get currentSkip => items.length;
@@ -29,6 +53,7 @@ class MediaState {
     int? total,
     bool? isLoadingMore,
     bool? hasMore,
+    MediaFilter? activeFilter,
     String? error,
   }) {
     return MediaState(
@@ -36,6 +61,7 @@ class MediaState {
       total: total ?? this.total,
       isLoadingMore: isLoadingMore ?? this.isLoadingMore,
       hasMore: hasMore ?? this.hasMore,
+      activeFilter: activeFilter ?? this.activeFilter,
       error: error,
     );
   }
@@ -43,11 +69,12 @@ class MediaState {
 
 // ── Notifier ──────────────────────────────────────────────────────────────────
 
-/// Manages gallery media list with pagination.
+/// Manages gallery media list with pagination and server-side type filtering.
 ///
 /// Usage:
 /// ```dart
 /// final state = ref.watch(mediaNotifierProvider);
+/// ref.read(mediaNotifierProvider.notifier).setFilter(MediaFilter.videos);
 /// ref.read(mediaNotifierProvider.notifier).loadMore();
 /// ```
 class MediaNotifier extends AsyncNotifier<MediaState> {
@@ -56,15 +83,23 @@ class MediaNotifier extends AsyncNotifier<MediaState> {
   @override
   Future<MediaState> build() async {
     _repository = ref.watch(mediaRepositoryProvider);
-    return _fetchFirstPage();
+    return _fetchFirstPage(filter: MediaFilter.all);
   }
 
   // ── Public API ────────────────────────────────────────────────────────
 
-  /// Refreshes the list from the beginning.
-  Future<void> refresh() async {
+  /// Applies a new filter and reloads items from page 1.
+  Future<void> setFilter(MediaFilter filter) async {
     state = const AsyncLoading();
-    state = await AsyncValue.guard(() => _fetchFirstPage());
+    state = await AsyncValue.guard(() => _fetchFirstPage(filter: filter));
+  }
+
+  /// Refreshes the list from the beginning, keeping the current filter.
+  Future<void> refresh() async {
+    final current = state.valueOrNull;
+    final filter = current?.activeFilter ?? MediaFilter.all;
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(() => _fetchFirstPage(filter: filter));
   }
 
   /// Appends the next page of items if more are available.
@@ -79,6 +114,7 @@ class MediaNotifier extends AsyncNotifier<MediaState> {
       final page = await _repository.getMedia(
         skip: current.currentSkip,
         limit: ApiConstants.defaultPageSize,
+        filterType: current.activeFilter.queryValue,
       );
 
       final updated = current.copyWith(
@@ -101,15 +137,17 @@ class MediaNotifier extends AsyncNotifier<MediaState> {
 
   // ── Private helpers ───────────────────────────────────────────────────
 
-  Future<MediaState> _fetchFirstPage() async {
+  Future<MediaState> _fetchFirstPage({required MediaFilter filter}) async {
     final page = await _repository.getMedia(
       skip: 0,
       limit: ApiConstants.defaultPageSize,
+      filterType: filter.queryValue,
     );
     return MediaState(
       items: page.items,
       total: page.total,
       hasMore: page.hasMore,
+      activeFilter: filter,
     );
   }
 }
