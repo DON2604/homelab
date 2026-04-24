@@ -16,16 +16,16 @@ enum MediaFilter {
 
   /// The value forwarded to the server as `filter_type`, or `null` for all.
   String? get queryValue => switch (this) {
-        MediaFilter.all => null,
-        MediaFilter.images => 'image',
-        MediaFilter.videos => 'video',
-      };
+    MediaFilter.all => null,
+    MediaFilter.images => 'image',
+    MediaFilter.videos => 'video',
+  };
 
   String get label => switch (this) {
-        MediaFilter.all => 'Photos & Videos',
-        MediaFilter.images => 'Photos',
-        MediaFilter.videos => 'Videos',
-      };
+    MediaFilter.all => 'Photos & Videos',
+    MediaFilter.images => 'Photos',
+    MediaFilter.videos => 'Videos',
+  };
 }
 
 // ── State ─────────────────────────────────────────────────────────────────────
@@ -129,10 +129,7 @@ class MediaNotifier extends AsyncNotifier<MediaState> {
     } catch (e) {
       // Keep existing items but report the error
       state = AsyncData(
-        current.copyWith(
-          isLoadingMore: false,
-          error: e.toString(),
-        ),
+        current.copyWith(isLoadingMore: false, error: e.toString()),
       );
     }
   }
@@ -155,15 +152,16 @@ class MediaNotifier extends AsyncNotifier<MediaState> {
 }
 
 /// The primary provider for gallery state.
-final mediaNotifierProvider =
-    AsyncNotifierProvider<MediaNotifier, MediaState>(MediaNotifier.new);
+final mediaNotifierProvider = AsyncNotifierProvider<MediaNotifier, MediaState>(
+  MediaNotifier.new,
+);
 
 /// Provider to check if the server is online.
 final serverStatusProvider = StreamProvider.autoDispose<bool>((ref) async* {
   Future<bool> checkStatus() async {
     try {
       final response = await http
-          .get(Uri.parse('https://hip-trim-dirt-duration.trycloudflare.com/'))
+          .get(Uri.parse(ApiConstants.baseUrl))
           .timeout(const Duration(seconds: 5));
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body);

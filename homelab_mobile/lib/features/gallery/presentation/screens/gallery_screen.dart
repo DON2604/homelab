@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:homelab_mobile/core/theme/app_theme.dart';
+import 'package:homelab_mobile/features/faces/presentation/screens/faces_screen.dart';
 import 'package:homelab_mobile/features/gallery/presentation/providers/media_provider.dart';
 import 'package:homelab_mobile/features/gallery/presentation/widgets/media_grid.dart';
 import 'package:homelab_mobile/features/gallery/presentation/widgets/logs_drawer.dart';
@@ -174,19 +175,41 @@ class _GalleryAppBar extends ConsumerWidget {
               SizedBox(
                 width: 48,
                 height: 48,
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    WavyProgressIndicator(progress: 0.4, color: Colors.purple),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(24),
-                      child: Image.asset(
-                        'assets/coming.gif',
-                        width: 40,
-                        height: 40,
+                child: GestureDetector(
+                  onTap: () => Navigator.push<void>(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (_, anim, __) => const FacesScreen(),
+                      transitionsBuilder: (_, anim, __, child) =>
+                          FadeTransition(
+                        opacity: anim,
+                        child: SlideTransition(
+                          position: Tween<Offset>(
+                            begin: const Offset(0, 0.06),
+                            end: Offset.zero,
+                          ).animate(CurvedAnimation(
+                              parent: anim, curve: Curves.easeOut)),
+                          child: child,
+                        ),
                       ),
+                      transitionDuration: const Duration(milliseconds: 350),
                     ),
-                  ],
+                  ),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      WavyProgressIndicator(
+                          progress: 0.4, color: Colors.purple),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(24),
+                        child: Image.asset(
+                          'assets/coming.gif',
+                          width: 40,
+                          height: 40,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(width: 8),

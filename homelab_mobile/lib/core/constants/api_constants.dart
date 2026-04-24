@@ -3,9 +3,10 @@
 class ApiConstants {
   ApiConstants._();
 
-  static const String baseUrl = 'https://hip-trim-dirt-duration.trycloudflare.com';
+  static const String baseUrl = 'http://192.168.0.207:8000';
   static const String mediaPrefix = '/media';
   static const String logsPrefix = '/logs';
+  static const String facesPrefix = '/faces';
 
   // ── Pagination defaults ────────────────────────────────────────────────
   static const int defaultPageSize = 50;
@@ -37,4 +38,31 @@ class ApiConstants {
   /// `GET /logs/?limit=`
   static String logsUrl({int limit = 100}) =>
       '$baseUrl$logsPrefix/?limit=$limit';
+
+  // ── Faces endpoints ────────────────────────────────────────────────────
+
+  /// `GET /faces/persons`
+  static String get personsUrl => '$baseUrl${facesPrefix}/persons';
+
+  /// `GET /faces/person/{id}`
+  static String personImagesUrl(int personId) =>
+      '$baseUrl${facesPrefix}/person/$personId';
+
+  /// `PUT /faces/person/{id}/name`
+  static String personNameUrl(int personId) =>
+      '$baseUrl${facesPrefix}/person/$personId/name';
+
+  /// Returns thumbnail URL for a given absolute file_path returned by the server.
+  /// The server stores paths like `/data/camera/IMG_xxx.jpg`; we extract the
+  /// filename and build a media thumbnail URL.
+  static String faceImageThumbnailUrl(String filePath) {
+    final filename = filePath.split('/').last.split(r'\').last;
+    return thumbnailUrl(filename);
+  }
+
+  /// Full-resolution URL for a face source image.
+  static String faceImageFullUrl(String filePath) {
+    final filename = filePath.split('/').last.split(r'\').last;
+    return fullUrl(filename);
+  }
 }

@@ -4,12 +4,13 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        // {
-        //     "name": "homelab_mobile",
-        //     "cwd": "homelab_mobile",
-        //     "request": "launch",
-        //     "type": "dart"
-        // },
+        {
+            "name": "homelab_mobile",
+            "cwd": "homelab_mobile",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug"
+        },
         // {
         //     "name": "homelab_mobile (profile mode)",
         //     "cwd": "homelab_mobile",
@@ -17,12 +18,12 @@
         //     "type": "dart",
         //     "flutterMode": "profile"
         // },
-        {
-            "name": "homelab_mobile (release mode)",
-            "cwd": "homelab_mobile",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
-        }
+        // {
+        //     "name": "homelab_mobile (release mode)",
+        //     "cwd": "homelab_mobile",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "flutterMode": "release"
+        // }
     ]
 }
