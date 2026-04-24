@@ -1,11 +1,297 @@
-2026-04-20 21:38:21,300 - media_app - INFO - Scanned 2411 media files in F:\backup\Xiaomi 220333QBI\Camera. Returning skip=50, limit=50, filter=None
-2026-04-20 21:38:24,169 - media_app - INFO - Scanned 2411 media files in F:\backup\Xiaomi 220333QBI\Camera. Returning skip=100, limit=50, filter=None
-2026-04-20 21:39:53,020 - uvicorn.error - INFO - Started server process [5284]
-2026-04-20 21:39:53,020 - uvicorn.error - INFO - Started server process [5284]
-2026-04-20 21:39:53,020 - uvicorn.error - INFO - Waiting for application startup.
-2026-04-20 21:39:53,020 - uvicorn.error - INFO - Waiting for application startup.
-2026-04-20 21:39:53,023 - uvicorn.error - INFO - Application startup complete.
-2026-04-20 21:39:53,023 - uvicorn.error - INFO - Application startup complete.
-2026-04-20 21:39:53,025 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-2026-04-20 21:39:53,025 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-2026-04-20 21:39:57,191 - uvicorn.access - INFO - 127.0.0.1:51383 - "GET /logs/?limit=100 HTTP/1.1" 200
+2026-04-24 14:47:55,390 - uvicorn.error - INFO - Started server process [4340]
+2026-04-24 14:47:55,390 - uvicorn.error - INFO - Started server process [4340]
+2026-04-24 14:47:55,401 - uvicorn.error - INFO - Waiting for application startup.
+2026-04-24 14:47:55,401 - uvicorn.error - INFO - Waiting for application startup.
+2026-04-24 14:47:55,402 - uvicorn.error - INFO - Application startup complete.
+2026-04-24 14:47:55,402 - uvicorn.error - INFO - Application startup complete.
+2026-04-24 14:47:55,403 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-04-24 14:47:55,403 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-04-24 14:48:07,158 - uvicorn.error - INFO - Shutting down
+2026-04-24 14:48:07,158 - uvicorn.error - INFO - Shutting down
+2026-04-24 14:48:07,266 - uvicorn.error - INFO - Waiting for application shutdown.
+2026-04-24 14:48:07,266 - uvicorn.error - INFO - Waiting for application shutdown.
+2026-04-24 14:48:07,266 - uvicorn.error - INFO - Application shutdown complete.
+2026-04-24 14:48:07,266 - uvicorn.error - INFO - Application shutdown complete.
+2026-04-24 14:48:07,267 - uvicorn.error - INFO - Finished server process [4340]
+2026-04-24 14:48:07,267 - uvicorn.error - INFO - Finished server process [4340]
+2026-04-24 14:48:12,702 - uvicorn.error - INFO - Started server process [5112]
+2026-04-24 14:48:12,702 - uvicorn.error - INFO - Started server process [5112]
+2026-04-24 14:48:12,703 - uvicorn.error - INFO - Waiting for application startup.
+2026-04-24 14:48:12,703 - uvicorn.error - INFO - Waiting for application startup.
+2026-04-24 14:48:12,703 - uvicorn.error - INFO - Application startup complete.
+2026-04-24 14:48:12,703 - uvicorn.error - INFO - Application startup complete.
+2026-04-24 14:48:12,704 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-04-24 14:48:12,704 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-04-24 14:48:19,449 - uvicorn.error - INFO - Shutting down
+2026-04-24 14:48:19,449 - uvicorn.error - INFO - Shutting down
+2026-04-24 14:48:19,556 - uvicorn.error - INFO - Waiting for application shutdown.
+2026-04-24 14:48:19,556 - uvicorn.error - INFO - Waiting for application shutdown.
+2026-04-24 14:48:19,556 - uvicorn.error - INFO - Application shutdown complete.
+2026-04-24 14:48:19,556 - uvicorn.error - INFO - Application shutdown complete.
+2026-04-24 14:48:19,557 - uvicorn.error - INFO - Finished server process [5112]
+2026-04-24 14:48:19,557 - uvicorn.error - INFO - Finished server process [5112]
+2026-04-24 14:57:46,843 - media_app - INFO - Downloading model face_detection_yunet_2023mar.onnx from https://github.com/opencv/opencv_zoo/raw/master/models/face_detection_yunet/face_detection_yunet_2023mar.onnx...
+2026-04-24 14:58:07,169 - media_app - INFO - Downloading model face_detection_yunet_2023mar.onnx from https://github.com/opencv/opencv_zoo/raw/main/models/face_detection_yunet/face_detection_yunet_2023mar.onnx...
+2026-04-24 14:58:08,044 - media_app - INFO - Successfully downloaded face_detection_yunet_2023mar.onnx
+2026-04-24 14:58:08,049 - media_app - INFO - Downloading model face_recognition_sface_2021dec.onnx from https://github.com/opencv/opencv_zoo/raw/main/models/face_recognition_sface/face_recognition_sface_2021dec.onnx...
+2026-04-24 14:58:11,035 - media_app - INFO - Successfully downloaded face_recognition_sface_2021dec.onnx
+2026-04-24 14:58:21,314 - media_app - INFO - Face Processing Worker Started.
+2026-04-24 14:58:21,314 - media_app - INFO - Within allowed time window (2 AM - 5 AM). Starting task...
+2026-04-24 14:58:21,315 - media_app - INFO - Scanning directory F:\backup\Xiaomi 220333QBI\Camera...
+2026-04-24 15:00:46,209 - uvicorn.error - INFO - Started server process [3732]
+2026-04-24 15:00:46,209 - uvicorn.error - INFO - Started server process [3732]
+2026-04-24 15:00:46,218 - uvicorn.error - INFO - Waiting for application startup.
+2026-04-24 15:00:46,218 - uvicorn.error - INFO - Waiting for application startup.
+2026-04-24 15:00:46,275 - uvicorn.error - INFO - Application startup complete.
+2026-04-24 15:00:46,275 - uvicorn.error - INFO - Application startup complete.
+2026-04-24 15:00:46,276 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-04-24 15:00:46,276 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-04-24 15:01:13,728 - uvicorn.access - INFO - 192.168.0.101:48747 - "GET /docs HTTP/1.1" 200
+2026-04-24 15:01:14,335 - uvicorn.access - INFO - 192.168.0.101:48747 - "GET /openapi.json HTTP/1.1" 200
+2026-04-24 15:01:18,952 - uvicorn.access - INFO - 192.168.0.101:48747 - "GET /faces/persons HTTP/1.1" 200
+2026-04-24 15:01:47,831 - uvicorn.error - INFO - Shutting down
+2026-04-24 15:01:47,831 - uvicorn.error - INFO - Shutting down
+2026-04-24 15:01:47,941 - uvicorn.error - INFO - Waiting for application shutdown.
+2026-04-24 15:01:47,941 - uvicorn.error - INFO - Waiting for application shutdown.
+2026-04-24 15:01:47,942 - uvicorn.error - INFO - Application shutdown complete.
+2026-04-24 15:01:47,942 - uvicorn.error - INFO - Application shutdown complete.
+2026-04-24 15:01:47,942 - uvicorn.error - INFO - Finished server process [3732]
+2026-04-24 15:01:47,942 - uvicorn.error - INFO - Finished server process [3732]
+2026-04-24 15:01:52,171 - uvicorn.error - INFO - Started server process [2196]
+2026-04-24 15:01:52,171 - uvicorn.error - INFO - Started server process [2196]
+2026-04-24 15:01:52,172 - uvicorn.error - INFO - Waiting for application startup.
+2026-04-24 15:01:52,172 - uvicorn.error - INFO - Waiting for application startup.
+2026-04-24 15:01:52,176 - uvicorn.error - INFO - Application startup complete.
+2026-04-24 15:01:52,176 - uvicorn.error - INFO - Application startup complete.
+2026-04-24 15:01:52,177 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-04-24 15:01:52,177 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-04-24 15:03:28,921 - uvicorn.error - INFO - Shutting down
+2026-04-24 15:03:28,921 - uvicorn.error - INFO - Shutting down
+2026-04-24 15:03:29,029 - uvicorn.error - INFO - Waiting for application shutdown.
+2026-04-24 15:03:29,029 - uvicorn.error - INFO - Waiting for application shutdown.
+2026-04-24 15:03:29,029 - uvicorn.error - INFO - Application shutdown complete.
+2026-04-24 15:03:29,029 - uvicorn.error - INFO - Application shutdown complete.
+2026-04-24 15:03:29,030 - uvicorn.error - INFO - Finished server process [2196]
+2026-04-24 15:03:29,030 - uvicorn.error - INFO - Finished server process [2196]
+2026-04-24 15:03:50,755 - uvicorn.error - INFO - Started server process [7508]
+2026-04-24 15:03:50,755 - uvicorn.error - INFO - Started server process [7508]
+2026-04-24 15:03:50,756 - uvicorn.error - INFO - Waiting for application startup.
+2026-04-24 15:03:50,756 - uvicorn.error - INFO - Waiting for application startup.
+2026-04-24 15:03:50,758 - uvicorn.error - INFO - Application startup complete.
+2026-04-24 15:03:50,758 - uvicorn.error - INFO - Application startup complete.
+2026-04-24 15:03:50,759 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-04-24 15:03:50,759 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-04-24 15:03:55,563 - uvicorn.access - INFO - 192.168.0.101:64590 - "GET /faces/persons HTTP/1.1" 200
+2026-04-24 15:04:00,058 - uvicorn.access - INFO - 192.168.0.101:64590 - "GET /faces/persons HTTP/1.1" 200
+2026-04-24 15:04:08,980 - media_app - INFO - Face Processing Worker Started.
+2026-04-24 15:04:08,980 - media_app - INFO - Within allowed time window (2 AM - 5 AM). Starting task...
+2026-04-24 15:04:08,980 - media_app - INFO - Scanning directory F:\backup\Xiaomi 220333QBI\Camera...
+2026-04-24 15:06:42,622 - media_app - INFO - Face Processing Worker Started.
+2026-04-24 15:06:42,623 - media_app - INFO - Time window check passed. Starting task...
+2026-04-24 15:06:42,623 - media_app - INFO - Scanning directory F:\backup\Xiaomi 220333QBI\Camera...
+2026-04-24 15:07:12,938 - media_app - INFO - Still scanning... found 500 images so far...
+2026-04-24 15:07:43,246 - media_app - INFO - Still scanning... found 1000 images so far...
+2026-04-24 15:08:13,761 - media_app - INFO - Still scanning... found 1500 images so far...
+2026-04-24 15:08:44,627 - media_app - INFO - Still scanning... found 2000 images so far...
+2026-04-24 15:08:58,370 - media_app - INFO - Finished scanning. Total images found: 2197
+2026-04-24 15:08:58,412 - media_app - INFO - Found 2197 unprocessed images.
+2026-04-24 15:22:06,355 - uvicorn.access - INFO - 192.168.0.101:13934 - "GET /faces/persons HTTP/1.1" 200
+2026-04-24 15:23:30,424 - media_app - INFO - Face Processing Worker Started.
+2026-04-24 15:23:30,424 - media_app - INFO - Time window check passed. Starting task...
+2026-04-24 15:23:30,425 - media_app - INFO - Scanning directory F:\backup\Xiaomi 220333QBI\Camera...
+2026-04-24 15:24:01,613 - media_app - INFO - Still scanning... found 500 images so far...
+2026-04-24 15:27:20,830 - uvicorn.error - INFO - Started server process [3280]
+2026-04-24 15:27:20,830 - uvicorn.error - INFO - Started server process [3280]
+2026-04-24 15:27:20,830 - uvicorn.error - INFO - Waiting for application startup.
+2026-04-24 15:27:20,830 - uvicorn.error - INFO - Waiting for application startup.
+2026-04-24 15:27:20,984 - uvicorn.error - INFO - Application startup complete.
+2026-04-24 15:27:20,984 - uvicorn.error - INFO - Application startup complete.
+2026-04-24 15:27:20,986 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-04-24 15:27:20,986 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-04-24 15:27:25,707 - media_app - INFO - Face Processing Worker Started.
+2026-04-24 15:27:25,707 - media_app - INFO - Time window check passed. Starting task...
+2026-04-24 15:27:25,708 - media_app - INFO - Scanning directory F:\backup\Xiaomi 220333QBI\Camera...
+2026-04-24 15:27:56,020 - media_app - INFO - Still scanning... found 500 images so far...
+2026-04-24 15:28:27,236 - media_app - INFO - Still scanning... found 1000 images so far...
+2026-04-24 15:28:58,251 - media_app - INFO - Still scanning... found 1500 images so far...
+2026-04-24 15:29:29,459 - media_app - INFO - Still scanning... found 2000 images so far...
+2026-04-24 15:29:41,718 - media_app - INFO - Finished scanning. Total images found: 2197
+2026-04-24 15:29:41,760 - media_app - INFO - Found 1457 unprocessed images.
+2026-04-24 15:29:41,760 - media_app - INFO - Processing image [1/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20230812_020354.jpg
+2026-04-24 15:30:19,694 - media_app - INFO - Processing image [10/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20230906_142529.jpg
+2026-04-24 15:31:05,055 - media_app - INFO - Processing image [20/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231013_190611.jpg
+2026-04-24 15:31:15,222 - media_app - INFO - Processing image [30/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231017_232233.jpg
+2026-04-24 15:31:26,054 - media_app - INFO - Processing image [40/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231017_232550.jpg
+2026-04-24 15:31:35,979 - media_app - INFO - Processing image [50/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231017_233301.jpg
+2026-04-24 15:31:47,304 - media_app - INFO - Processing image [60/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231017_233938.jpg
+2026-04-24 15:31:55,979 - media_app - INFO - Processing image [70/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231018_214414.jpg
+2026-04-24 15:32:08,354 - media_app - INFO - Processing image [80/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231018_221430.jpg
+2026-04-24 15:32:22,020 - media_app - INFO - Processing image [90/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231019_124104.jpg
+2026-04-24 15:32:38,369 - media_app - INFO - Processing image [100/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231019_130046.jpg
+2026-04-24 15:32:49,602 - media_app - INFO - Processing image [110/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231019_140658.jpg
+2026-04-24 15:32:59,627 - media_app - INFO - Processing image [120/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231019_142239.jpg
+2026-04-24 15:33:17,617 - media_app - INFO - Processing image [130/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231019_145117.jpg
+2026-04-24 15:33:34,684 - media_app - INFO - Processing image [140/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231019_161008.jpg
+2026-04-24 15:33:47,409 - media_app - INFO - Processing image [150/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231020_180421.jpg
+2026-04-24 15:34:00,758 - media_app - INFO - Processing image [160/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231020_184542.jpg
+2026-04-24 15:34:12,549 - media_app - INFO - Processing image [170/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231021_121548.jpg
+2026-04-24 15:34:23,548 - media_app - INFO - Processing image [180/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231021_221201.jpg
+2026-04-24 15:34:33,456 - media_app - INFO - Processing image [190/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231022_205829.jpg
+2026-04-24 15:34:43,998 - media_app - INFO - Processing image [200/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231028_143850.jpg
+2026-04-24 15:34:54,031 - media_app - INFO - Processing image [210/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231029_124447.jpg
+2026-04-24 15:35:08,098 - media_app - INFO - Processing image [220/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231111_220004.jpg
+2026-04-24 15:35:23,122 - media_app - INFO - Processing image [230/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231115_113628.jpg
+2026-04-24 15:35:31,438 - media_app - INFO - Processing image [240/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231115_120506.jpg
+2026-04-24 15:35:44,430 - media_app - INFO - Processing image [250/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231115_165510.jpg
+2026-04-24 15:35:55,271 - media_app - INFO - Processing image [260/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231115_184253.jpg
+2026-04-24 15:36:04,562 - media_app - INFO - Processing image [270/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231121_132655.jpg
+2026-04-24 15:36:18,845 - media_app - INFO - Processing image [280/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231229_095035.jpg
+2026-04-24 15:36:33,461 - media_app - INFO - Processing image [290/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231229_111545.jpg
+2026-04-24 15:36:46,961 - media_app - INFO - Processing image [300/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231229_112506.jpg
+2026-04-24 15:36:58,227 - media_app - INFO - Processing image [310/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231229_120102.jpg
+2026-04-24 15:37:07,343 - media_app - INFO - Processing image [320/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231229_124055.jpg
+2026-04-24 15:37:16,068 - media_app - INFO - Processing image [330/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231229_125102.jpg
+2026-04-24 15:37:24,543 - media_app - INFO - Processing image [340/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231229_130613.jpg
+2026-04-24 15:37:33,851 - media_app - INFO - Processing image [350/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231229_141325.jpg
+2026-04-24 15:37:44,309 - media_app - INFO - Processing image [360/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231229_144049.jpg
+2026-04-24 15:37:59,499 - media_app - INFO - Processing image [370/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20231229_145113.jpg
+2026-04-24 15:38:11,841 - media_app - INFO - Processing image [380/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240107_135526.jpg
+2026-04-24 15:38:20,408 - media_app - INFO - Processing image [390/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240119_085421.jpg
+2026-04-24 15:38:32,499 - media_app - INFO - Processing image [400/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240203_205933.jpg
+2026-04-24 15:38:40,248 - media_app - INFO - Processing image [410/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240207_092846.jpg
+2026-04-24 15:38:49,198 - media_app - INFO - Processing image [420/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240210_210704.jpg
+2026-04-24 15:38:57,098 - media_app - INFO - Processing image [430/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240213_113850.jpg
+2026-04-24 15:39:04,031 - media_app - INFO - Processing image [440/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240214_103104.jpg
+2026-04-24 15:39:12,464 - media_app - INFO - Processing image [450/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240214_111132.jpg
+2026-04-24 15:39:20,605 - media_app - INFO - Processing image [460/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240217_164635.jpg
+2026-04-24 15:39:31,346 - media_app - INFO - Processing image [470/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240221_152954.jpg
+2026-04-24 15:39:39,688 - media_app - INFO - Processing image [480/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240324_202646.jpg
+2026-04-24 15:39:52,471 - media_app - INFO - Processing image [490/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240508_182623.jpg
+2026-04-24 15:40:07,220 - media_app - INFO - Processing image [500/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240511_193545.jpg
+2026-04-24 15:40:23,287 - media_app - INFO - Processing image [510/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240511_232309.jpg
+2026-04-24 15:40:31,928 - media_app - INFO - Processing image [520/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240526_143759.jpg
+2026-04-24 15:40:40,344 - media_app - INFO - Processing image [530/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240601_131236.jpg
+2026-04-24 15:40:53,260 - media_app - INFO - Processing image [540/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240611_235556.jpg
+2026-04-24 15:41:01,827 - media_app - INFO - Processing image [550/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240623_164100.jpg
+2026-04-24 15:41:09,867 - media_app - INFO - Processing image [560/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240623_165038.jpg
+2026-04-24 15:41:18,168 - media_app - INFO - Processing image [570/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240623_171233.jpg
+2026-04-24 15:41:26,176 - media_app - INFO - Processing image [580/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240624_022224.jpg
+2026-04-24 15:41:35,843 - media_app - INFO - Processing image [590/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240708_160534.jpg
+2026-04-24 15:41:42,450 - media_app - INFO - Processing image [600/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240807_181509.jpg
+2026-04-24 15:41:50,959 - media_app - INFO - Processing image [610/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240807_190246.jpg
+2026-04-24 15:41:59,142 - media_app - INFO - Processing image [620/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240820_133240.jpg
+2026-04-24 15:42:08,199 - media_app - INFO - Processing image [630/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240904_221429.jpg
+2026-04-24 15:42:18,250 - media_app - INFO - Processing image [640/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20240925_140214.jpg
+2026-04-24 15:42:26,824 - media_app - INFO - Processing image [650/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20241006_183110.jpg
+2026-04-24 15:42:38,748 - media_app - INFO - Processing image [660/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20241007_184508.jpg
+2026-04-24 15:42:49,289 - media_app - INFO - Processing image [670/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20241007_192555.jpg
+2026-04-24 15:43:00,439 - media_app - INFO - Processing image [680/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20241008_112740.jpg
+2026-04-24 15:43:13,505 - media_app - INFO - Processing image [690/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20241008_123449.jpg
+2026-04-24 15:43:22,130 - media_app - INFO - Processing image [700/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20241008_140733.jpg
+2026-04-24 15:43:32,996 - media_app - INFO - Processing image [710/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20241008_151227.jpg
+2026-04-24 15:43:44,254 - media_app - INFO - Processing image [720/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20241010_173549.jpg
+2026-04-24 15:43:55,288 - media_app - INFO - Processing image [730/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20241010_180859.jpg
+2026-04-24 15:44:04,929 - media_app - INFO - Processing image [740/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20241010_183038.jpg
+2026-04-24 15:44:17,262 - media_app - INFO - Processing image [750/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20241010_184907.jpg
+2026-04-24 15:44:27,328 - media_app - INFO - Processing image [760/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20241017_012854.jpg
+2026-04-24 15:44:36,235 - media_app - INFO - Processing image [770/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20241031_233623.jpg
+2026-04-24 15:44:44,526 - media_app - INFO - Processing image [780/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20241103_222008.jpg
+2026-04-24 15:44:53,274 - media_app - INFO - Processing image [790/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20241116_124206.jpg
+2026-04-24 15:45:05,373 - media_app - INFO - Processing image [800/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20241116_125147.jpg
+2026-04-24 15:45:14,380 - media_app - INFO - Processing image [810/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20241210_230059.jpg
+2026-04-24 15:45:26,105 - media_app - INFO - Processing image [820/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20241229_150401.jpg
+2026-04-24 15:45:34,710 - media_app - INFO - Processing image [830/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250116_110447.jpg
+2026-04-24 15:45:42,743 - media_app - INFO - Processing image [840/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250127_161126.jpg
+2026-04-24 15:45:50,724 - media_app - INFO - Processing image [850/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250221_103240.jpg
+2026-04-24 15:45:59,481 - media_app - INFO - Processing image [860/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250222_214323.jpg
+2026-04-24 15:46:08,880 - media_app - INFO - Processing image [870/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250225_102820.jpg
+2026-04-24 15:46:17,303 - media_app - INFO - Processing image [880/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250307_135149.jpg
+2026-04-24 15:46:26,235 - media_app - INFO - Processing image [890/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250406_222835.jpg
+2026-04-24 15:46:34,501 - media_app - INFO - Processing image [900/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250415_132502.jpg
+2026-04-24 15:46:43,174 - media_app - INFO - Processing image [910/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250418_143444.jpg
+2026-04-24 15:46:49,165 - media_app - INFO - Processing image [920/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250429_214652.jpg
+2026-04-24 15:46:57,039 - media_app - INFO - Processing image [930/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250509_001930.jpg
+2026-04-24 15:47:05,329 - media_app - INFO - Processing image [940/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250520_070907.jpg
+2026-04-24 15:47:13,620 - media_app - INFO - Processing image [950/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250520_124055.jpg
+2026-04-24 15:47:24,528 - media_app - INFO - Processing image [960/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250520_185551.jpg
+2026-04-24 15:47:32,676 - media_app - INFO - Processing image [970/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250520_191701.jpg
+2026-04-24 15:47:41,499 - media_app - INFO - Processing image [980/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250520_204330.jpg
+2026-04-24 15:47:49,831 - media_app - INFO - Processing image [990/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250521_071035.jpg
+2026-04-24 15:47:59,579 - media_app - INFO - Processing image [1000/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250521_071618.jpg
+2026-04-24 15:48:07,820 - media_app - INFO - Processing image [1010/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250521_072555.jpg
+2026-04-24 15:48:16,710 - media_app - INFO - Processing image [1020/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250521_073047.jpg
+2026-04-24 15:48:22,609 - media_app - INFO - Processing image [1030/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250521_074417.jpg
+2026-04-24 15:48:30,991 - media_app - INFO - Processing image [1040/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250521_084358.jpg
+2026-04-24 15:48:38,332 - media_app - INFO - Processing image [1050/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250521_125035.jpg
+2026-04-24 15:48:46,980 - media_app - INFO - Processing image [1060/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250530_155310.jpg
+2026-04-24 15:48:55,221 - media_app - INFO - Processing image [1070/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250609_103700.jpg
+2026-04-24 15:49:03,320 - media_app - INFO - Processing image [1080/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250710_234816.jpg
+2026-04-24 15:49:11,477 - media_app - INFO - Processing image [1090/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250726_195742.jpg
+2026-04-24 15:49:19,517 - media_app - INFO - Processing image [1100/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250727_163833.jpg
+2026-04-24 15:49:29,224 - media_app - INFO - Processing image [1110/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250727_210412.jpg
+2026-04-24 15:49:42,905 - media_app - INFO - Processing image [1120/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250805_093342.jpg
+2026-04-24 15:49:51,104 - media_app - INFO - Processing image [1130/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250810_140828.jpg
+2026-04-24 15:49:58,644 - media_app - INFO - Processing image [1140/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250831_153325.jpg
+2026-04-24 15:50:06,393 - media_app - INFO - Processing image [1150/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250903_173740.jpg
+2026-04-24 15:50:18,500 - media_app - INFO - Processing image [1160/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250926_183750.jpg
+2026-04-24 15:50:27,048 - media_app - INFO - Processing image [1170/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250926_220538.jpg
+2026-04-24 15:50:36,388 - media_app - INFO - Processing image [1180/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250927_122033.jpg
+2026-04-24 15:50:45,896 - media_app - INFO - Processing image [1190/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250927_160603.jpg
+2026-04-24 15:50:57,927 - media_app - INFO - Processing image [1200/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250929_201448.jpg
+2026-04-24 15:51:07,933 - media_app - INFO - Processing image [1210/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250930_193633.jpg
+2026-04-24 15:51:19,024 - media_app - INFO - Processing image [1220/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20250930_195355.jpg
+2026-04-24 15:51:30,330 - media_app - INFO - Processing image [1230/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20251001_211922.jpg
+2026-04-24 15:51:40,595 - media_app - INFO - Processing image [1240/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20251001_215406.jpg
+2026-04-24 15:51:50,894 - media_app - INFO - Processing image [1250/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20251006_201202.jpg
+2026-04-24 15:52:06,233 - media_app - INFO - Processing image [1260/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20251020_211552.jpg
+2026-04-24 15:52:15,964 - media_app - INFO - Processing image [1270/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20251022_150312.jpg
+2026-04-24 15:52:23,831 - media_app - INFO - Processing image [1280/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20251030_110220.jpg
+2026-04-24 15:52:31,596 - media_app - INFO - Processing image [1290/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20251103_181344.jpg
+2026-04-24 15:52:40,170 - media_app - INFO - Processing image [1300/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20251115_100616.jpg
+2026-04-24 15:53:02,149 - media_app - INFO - Processing image [1310/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20251115_120631.jpg
+2026-04-24 15:53:21,153 - media_app - INFO - Processing image [1320/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20251119_113512.jpg
+2026-04-24 15:53:29,112 - media_app - INFO - Processing image [1330/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20251126_183155.jpg
+2026-04-24 15:53:39,202 - media_app - INFO - Processing image [1340/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20251220_120023.jpg
+2026-04-24 15:53:46,992 - media_app - INFO - Processing image [1350/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20251222_183720.jpg
+2026-04-24 15:53:55,975 - media_app - INFO - Processing image [1360/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20251228_173642.jpg
+2026-04-24 15:54:05,098 - media_app - INFO - Processing image [1370/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20251231_182750.jpg
+2026-04-24 15:54:15,663 - media_app - INFO - Processing image [1380/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20260101_185752.jpg
+2026-04-24 15:54:24,104 - media_app - INFO - Processing image [1390/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20260102_171548.jpg
+2026-04-24 15:54:33,086 - media_app - INFO - Processing image [1400/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20260102_173326.jpg
+2026-04-24 15:54:41,292 - media_app - INFO - Processing image [1410/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20260102_174508.jpg
+2026-04-24 15:54:49,575 - media_app - INFO - Processing image [1420/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20260102_175034.jpg
+2026-04-24 15:54:57,466 - media_app - INFO - Processing image [1430/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20260102_180304.jpg
+2026-04-24 15:55:05,622 - media_app - INFO - Processing image [1440/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20260102_185450.jpg
+2026-04-24 15:55:14,896 - media_app - INFO - Processing image [1450/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20260102_191203.jpg
+2026-04-24 15:55:20,170 - media_app - INFO - Processing image [1457/1457] - F:\backup\Xiaomi 220333QBI\Camera\IMG_20260102_191705.jpg
+2026-04-24 15:55:21,074 - media_app - INFO - Starting face clustering process...
+2026-04-24 15:57:04,421 - media_app - INFO - Clustering completed successfully.
+2026-04-24 15:57:04,423 - media_app - INFO - Task completed. Sleeping for 1 hour...
+2026-04-24 16:25:13,553 - uvicorn.access - INFO - 192.168.0.101:49670 - "GET /faces/persons HTTP/1.1" 200
+2026-04-24 16:57:04,203 - media_app - INFO - Time window check passed. Starting task...
+2026-04-24 16:57:04,204 - media_app - INFO - Scanning directory F:\backup\Xiaomi 220333QBI\Camera...
+2026-04-24 16:57:34,871 - media_app - INFO - Still scanning... found 500 images so far...
+2026-04-24 16:58:06,361 - media_app - INFO - Still scanning... found 1000 images so far...
+2026-04-24 16:58:36,843 - media_app - INFO - Still scanning... found 1500 images so far...
+2026-04-24 16:59:07,098 - media_app - INFO - Still scanning... found 2000 images so far...
+2026-04-24 16:59:19,374 - media_app - INFO - Finished scanning. Total images found: 2197
+2026-04-24 16:59:19,486 - media_app - INFO - No new images to process.
+2026-04-24 16:59:19,487 - media_app - INFO - Task completed. Sleeping for 1 hour...
+2026-04-24 17:59:19,428 - media_app - INFO - Time window check passed. Starting task...
+2026-04-24 17:59:19,429 - media_app - INFO - Scanning directory F:\backup\Xiaomi 220333QBI\Camera...
+2026-04-24 17:59:49,839 - media_app - INFO - Still scanning... found 500 images so far...
+2026-04-24 18:00:20,288 - media_app - INFO - Still scanning... found 1000 images so far...
+2026-04-24 18:00:50,871 - media_app - INFO - Still scanning... found 1500 images so far...
+2026-04-24 18:01:21,869 - media_app - INFO - Still scanning... found 2000 images so far...
+2026-04-24 18:01:33,544 - media_app - INFO - Finished scanning. Total images found: 2197
+2026-04-24 18:01:33,547 - media_app - INFO - No new images to process.
+2026-04-24 18:01:33,548 - media_app - INFO - Task completed. Sleeping for 1 hour...
+2026-04-24 19:01:33,532 - media_app - INFO - Time window check passed. Starting task...
+2026-04-24 19:01:33,532 - media_app - INFO - Scanning directory F:\backup\Xiaomi 220333QBI\Camera...
+2026-04-24 19:02:03,850 - media_app - INFO - Still scanning... found 500 images so far...
+2026-04-24 19:02:34,176 - media_app - INFO - Still scanning... found 1000 images so far...
+2026-04-24 19:03:04,599 - media_app - INFO - Still scanning... found 1500 images so far...
+2026-04-24 19:03:35,180 - media_app - INFO - Still scanning... found 2000 images so far...
+2026-04-24 19:03:47,231 - media_app - INFO - Finished scanning. Total images found: 2197
+2026-04-24 19:03:47,234 - media_app - INFO - No new images to process.
+2026-04-24 19:03:47,234 - media_app - INFO - Task completed. Sleeping for 1 hour...
