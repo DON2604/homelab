@@ -5,6 +5,7 @@ class ApiConstants {
 
   static const String baseUrl = 'https://hip-trim-dirt-duration.trycloudflare.com';
   static const String mediaPrefix = '/media';
+  static const String logsPrefix = '/logs';
 
   // ── Pagination defaults ────────────────────────────────────────────────
   static const int defaultPageSize = 50;
@@ -32,4 +33,8 @@ class ApiConstants {
   /// `GET /media/{filename}/stream`
   static String streamUrl(String filename) =>
       '$baseUrl$mediaPrefix/$filename/stream';
+
+  /// `GET /logs/?limit=`
+  static String logsUrl({int limit = 100}) =>
+      '$baseUrl$logsPrefix/?limit=$limit';
 }
